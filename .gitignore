@@ -1,0 +1,7 @@
+node_modules
+demo/dist
+examples/dist
+demo/pool/dist
+demo/examples/dist
+.DS_Store
+deploy

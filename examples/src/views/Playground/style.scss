@@ -1,0 +1,23 @@
+#ide {
+    display: flex;
+    height: 100%;
+    --playground-bar-height: 54px;
+    --playground-preview-width: 55%;
+    scrollbar-width: none !important; /* firefox */
+    -ms-overflow-style: none !important; /* ie10+ */
+    & ::-webkit-scrollbar {
+        /* chrome */
+        display: none !important;
+    }
+}
+
+.urlDiv {
+    position: absolute;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+div {
+    height: 100%;
+    overflow: scroll;
+}

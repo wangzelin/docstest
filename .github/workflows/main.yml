@@ -1,0 +1,47 @@
+name: docs
+
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use node v16
+        uses: actions/setup-node@v1
+        with:
+          node-version: "16.x"
+
+      - name: build examples
+        run: |
+          npm install yarn
+          yarn
+          yarn build
+          rm -rf ./deploy
+          mkdir -p deploy/examples
+          mkdir -p deploy/docs
+          mkdir -p deploy/demo
+          cp -rf index.html ./deploy
+          cp -rf ./docs/* ./deploy/docs
+          cp -rf ./examples/dist/* ./deploy/examples
+          cd ./demo
+          for file in ./*
+          do
+            if [ -d $file/dist ];then
+              echo $file/dist
+              mkdir -p ./dist/$file
+              cp -rf $file/dist/* dist/$file/
+            fi
+          done
+          cd -
+          cp -rf ./demo/dist ./deploy/demo
+
+      - name: deploy to github pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          force_orphan: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./deploy
+          cname: site.logic-flow.cn

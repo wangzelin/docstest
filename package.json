@@ -1,0 +1,40 @@
+{
+  "name": "docs-examples",
+  "version": "1.0.0",
+  "description": "文档&示例开发",
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "workspaces": [
+    "demo/*",
+    "examples",
+    "docs"
+  ],
+  "private": true,
+  "scripts": {
+    "build": "lerna run build",
+    "build:local": "lerna run build && sh remove.sh",
+    "build:vercel": "sh build.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Logic-Flow/docs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Logic-Flow/docs/issues"
+  },
+  "homepage": "https://github.com/Logic-Flow/docs#readme",
+  "devDependencies": {
+    "@logicflow/core": "^1.2.12",
+    "@logicflow/extension": "^1.2.12",
+    "@vue/cli-plugin-eslint": "~4.5.13",
+    "lerna": "^6.0.1"
+  },
+  "dependencies": {
+    "yarn": "^1.22.21"
+  }
+}

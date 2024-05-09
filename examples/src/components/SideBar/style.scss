@@ -1,0 +1,298 @@
+.rem-17 {
+    width: 17rem;
+}
+
+.rem-0 {
+    width: 27px;
+}
+
+.menu-wrap {
+    display: flex;
+    align-items: center;
+    transition: 0.2s;
+    background: #fff;
+}
+
+.menu {
+    height: 100%;
+    overflow: scroll;
+    background-color: #fff;
+    color: #000;
+    border-right: 1px solid #f6f6f6;
+
+    .menu-search-wrap {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
+        margin: 0px 0px 10px 0px;
+        .menu-header {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            margin: 10px 0 30px;
+            div {
+                margin: 0px 15px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+            }
+            img {
+                height: 40px;
+            }
+        }
+        .menu-sh {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+        }
+        .menu-search {
+            display: flex;
+            border-radius: 3px;
+            background-color: #fff;
+            border: 1px solid #e3e2e2;
+        }
+        .menu-search-icon {
+            margin: 0px 5px;
+        }
+        .menu-search-input {
+            outline-style: none;
+            border: none;
+            border-radius: 3px;
+            background-color: #fff;
+            color: #000;
+        }
+
+        .menu-search-fold {
+            cursor: pointer;
+        }
+    }
+
+    .menu-item {
+        overflow: hidden;
+        transition: 0.25s;
+        height: 50px;
+    }
+
+    .topic {
+        height: 50px;
+        padding: 0px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.25s;
+        background-color: #fff;
+    }
+
+    .examples-wrap {
+        background-color: #fafafb;
+        transition: 0.3s;
+        overflow: hidden;
+
+        div {
+            width: 100%;
+            transition: 0.25s;
+        }
+
+        .examples {
+            min-height: 44px;
+            color: #000;
+        }
+
+        .item-active {
+            background: #cae4ff;
+            box-shadow: inset -5px 0px #306eff;
+        }
+
+        .sub-title {
+            display: flex;
+            height: 50px;
+            align-items: center;
+            justify-content: space-between;
+            :first-child {
+                padding-left: 10px;
+            }
+            .fold-icon {
+                right: 20px;
+            }
+        }
+
+        .sub-items {
+            flex-direction: column;
+            background-color: #f6faff;
+            a {
+                display: flex;
+                justify-content: center;
+                img {
+                    display: inline-block;
+                }
+            }
+            .sub-item {
+                transition: 0.25s;
+                padding: 8px 0px;
+            }
+        }
+
+        .with-thumbnail {
+            display: flex;
+            flex-direction: column;
+            overflow: scroll;
+        }
+        .menu-content {
+            padding-left: 35px;
+            font-size: 14px;
+        }
+    }
+}
+
+.hover-bkg {
+    &:hover {
+        background-color: #e2f2ff;
+    }
+}
+.hover-font {
+    &:hover {
+        color: #306eff;
+    }
+}
+
+.fold-tool {
+    background-color: #fff;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    border-radius: 0px 6px 6px 0px;
+    padding: 0px 10px 0px 0px;
+    color: #000;
+    border: 1px solid #e6e6e6;
+    border-left: none;
+    position: relative;
+    top: -27%;
+    right: 1px;
+    transition: 0.25s;
+}
+
+.fold-tool-transform {
+    transform: rotate3d(0, 0, 1, 180deg) translate(-10px, 0px);
+}
+
+.fold-icon-collapse {
+    .fold-icon {
+        // opacity: 0;
+        &::after {
+            // transform: translateX(2.5px) rotate(45deg);
+            transform: translate(-6px, 0px);
+        }
+        &::before {
+            // transform: translateX(-1.5px) rotate(-45deg);
+            transform: translate(-8px, 0px);
+        }
+    }
+}
+
+.fold-icon-open {
+    .fa-caret-down {
+        transform: rotate(180deg);
+    }
+}
+
+.fold-icon {
+    text-align: right;
+    position: relative;
+    right: 10px;
+    &::after {
+        transition: 0.25s;
+        content: "";
+        position: absolute;
+        width: 6px;
+        height: 1.5px;
+        background-color: #314659;
+    }
+    &::before {
+        transition: 0.25s;
+        content: "";
+        position: absolute;
+        width: 6px;
+        height: 1.5px;
+        background-color: #314659;
+    }
+}
+
+.thumbnail-active {
+    .thumbnail {
+        border: 1px solid #587ef1;
+    }
+}
+
+.thumbnail {
+    height: 125px;
+    display: block;
+    // margin-left: 10px;
+    border: 1px solid #e8e8e8;
+    border-radius: 2px;
+}
+
+.selected {
+    &:first-child {
+        color: #306eff;
+    }
+}
+
+.filter-font {
+    padding-left: 0px !important;
+    color: #306eff;
+}
+
+.popover-wrap {
+    position: relative;
+}
+.popover-in {
+    right: 0px !important;
+}
+// .popover-out {
+// }
+.title-popover {
+    display: flex;
+    color: white;
+    position: absolute;
+    bottom: 15px;
+    right: 100%;
+    transition: 0.16s;
+    .title-main {
+        font-size: 14px !important;
+        padding: 4px;
+        min-width: 70% !important;
+        background-color: #da0404a8;
+    }
+}
+.topic-content {
+    display: flex;
+    align-items: center;
+    p {
+        margin: 0px;
+        line-height: 50px;
+    }
+}
+.selected .categorize_icon::before {
+    color: #306eff;
+}
+.categorize_icon::before {
+    display: inline-block;
+    font-family: FontAwesome;
+    margin-right: 10px;
+    color: #4D4D5D;
+}
+.categorize_0::before {
+    content: "\f0e4";
+}
+.categorize_1::before {
+    content: "\f02d";
+}
+.categorize_2::before {
+    content: "\f02c";
+}
